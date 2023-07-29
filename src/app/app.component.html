@@ -1,0 +1,57 @@
+<mat-toolbar color="primary">
+  <div class="logo">
+    <a href="/">
+      <img src="assets/logo_isi.png" alt="logo" class="logo-image">
+
+    </a>
+  </div>
+
+  <div class="menu-buttons" *ngIf="isLoggedIn">
+    <button mat-button (click)="showHistoriqueModale()">
+      <mat-icon>history</mat-icon>
+      <span>Voir Historique</span>
+    </button>
+  </div>
+
+  <div class="auth-button">
+    <button mat-button *ngIf="!isLoggedIn" (click)="showAuth(true)">
+      <mat-icon>lock</mat-icon>
+      <span>Se Connecter</span>
+    </button>
+    <ng-container *ngIf="isLoggedIn">
+      {{name}}
+      <button mat-button (click)="logout()">
+        <mat-icon>lock</mat-icon>
+        <span>Se Deconnecter</span>
+      </button>
+    </ng-container>
+
+  </div>
+  <div class="auth-button">
+
+
+  </div>
+</mat-toolbar>
+<div class="container">
+  <mat-form-field class="example-form-field">
+    <input matInput [matDatepicker]="picker" placeholder="Choisir une date *" [(ngModel)]="selectedDate" name="selectedDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <!-- Submit Button -->
+  <button mat-button color="primary" (click)="submitForm()">Valider</button>
+
+  <!-- Animated Text "Hello" -->
+  <mat-card class="example-card">
+    <mat-card-content>
+      <div #animatedText class="animated-text">
+        <mat-icon class="bell-icon">infos</mat-icon>
+        <span class="hello-text">{{ messageText }}</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <button mat-fab class="floating-button" (click)="openChatModal()">
+    <mat-icon>message</mat-icon>
+  </button>
+</div>

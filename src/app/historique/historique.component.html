@@ -1,0 +1,20 @@
+<mat-table [dataSource]="dates" style="margin-top:10px;">
+  <!-- Date de recherche -->
+  <ng-container matColumnDef="dateDeRecherche">
+    <mat-header-cell *matHeaderCellDef>Date de recherche</mat-header-cell>
+    <mat-cell *matCellDef="let dat">{{ getDateAString(dat.jourDeRecherche) }}</mat-cell>
+  </ng-container>
+
+  <!-- Date recherche -->
+  <ng-container matColumnDef="dateRecherche">
+    <mat-header-cell *matHeaderCellDef>Date recherchée</mat-header-cell>
+    <mat-cell *matCellDef="let dat">{{ getDateString(dat.jourRecherche) }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="['dateDeRecherche', 'dateRecherche']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['dateDeRecherche', 'dateRecherche']"></mat-row>
+</mat-table>
+
+<mat-dialog-actions align="center" style="margin-top:40px;">
+  <button mat-button color="primary" (click)="dialogRef.close()">Close</button>
+</mat-dialog-actions>

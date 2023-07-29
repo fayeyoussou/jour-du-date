@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Chat Messages</h2>
+
+<mat-tab-group mat-stretch-tabs>
+  <!-- First Horizontal Tab - Chat with Friends -->
+  <mat-tab label="Chat with Friends">
+    <mat-tab-group>
+      <!-- Vertical Tabs - Each tab represents a friend -->
+      <mat-tab *ngFor="let friend of data.friends" label="{{ friend.name }}">
+        <!-- Display chat with friend here -->
+        <p>Chat with {{ friend.name }}</p>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-tab>
+
+  <!-- Second Horizontal Tab - Add a Friend -->
+  <mat-tab label="Add Friend">
+    <!-- Add a friend interface content here -->
+    <p>Add a new friend</p>
+  </mat-tab>
+</mat-tab-group>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="dialogRef.close()">Close</button>
+</div>
