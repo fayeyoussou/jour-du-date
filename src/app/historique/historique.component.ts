@@ -27,8 +27,9 @@ export class HistoriqueComponent {
     const milliseconds = jourRecherche.seconds * 1000 + jourRecherche.nanoseconds / 1000000;
     return this.service.getDateBString(new Date(milliseconds));
   }
-  getDateString(jourRecherche: Timestamp):string {
+  getDateString(jourRecherche: Timestamp,jourDeRecherhce : Timestamp):string {
     const milliseconds = jourRecherche.seconds * 1000 + jourRecherche.nanoseconds / 1000000;
-    return this.service.getDateString(new Date(milliseconds));
+    const milliseconds2 = jourDeRecherhce.seconds * 1000 + jourDeRecherhce.nanoseconds / 1000000;
+    return this.service.getDateString(new Date(milliseconds),new Date(milliseconds2));
   }
 }

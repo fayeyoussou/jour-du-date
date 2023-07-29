@@ -8,7 +8,7 @@
   <!-- Date recherche -->
   <ng-container matColumnDef="dateRecherche">
     <mat-header-cell *matHeaderCellDef>Date recherchée</mat-header-cell>
-    <mat-cell *matCellDef="let dat">{{ getDateString(dat.jourRecherche) }}</mat-cell>
+    <mat-cell *matCellDef="let dat">{{ getDateString(dat.jourRecherche,dat.jourDeRecherche) }}</mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="['dateDeRecherche', 'dateRecherche']"></mat-header-row>

@@ -36,13 +36,15 @@ export class HistoriqueService {
   getDateBString(selectedDate: Date) : string {
     return this.datePipe.transform(selectedDate, 'dd/MMM/yyyy', 'fr') || '';
   }
-  getDateString(selectedDate: Date) : string {
+  getDateString(selectedDate: Date,current : Date = null) : string {
     let messageText = ""
-
+      if(current == null){
+        current = this.aujourdhui
+      }
       let text = "";
-      if (this.aujourdhui.getDate() == selectedDate.getDate() && this.aujourdhui.getMonth() == selectedDate.getMonth() && this.aujourdhui.getFullYear() == selectedDate.getFullYear()){
+      if (current.getDate() == selectedDate.getDate() && current.getMonth() == selectedDate.getMonth() && current.getFullYear() == selectedDate.getFullYear()){
         text = "est un "
-      }else if(selectedDate > this.aujourdhui){
+      }else if(selectedDate > current){
         text = "sera un "
       } else {
         text = "etait un "
